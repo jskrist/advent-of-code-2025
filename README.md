@@ -1,4 +1,4 @@
-# 2025 Advent of Code
+# [2025 Advent of Code](https://adventofcode.com/2025)
 This is a repository of my 2025 AoC solutions.  I started off doing this in python, and decided later to also complete them in Rust as a way to practice more Rust.
 
 ### Notes on Rust solutions
