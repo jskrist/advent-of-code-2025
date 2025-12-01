@@ -10,9 +10,9 @@ with open(input_file, "r") as file:
 # process the input file (R and L to + and -)
 num_strs = directions.replace("L", "-").replace("R", "+")
 # convert to list of integers
-nums = [int(i) for i in num_strs.splitlines()]
+offsets = [int(i) for i in num_strs.splitlines()]
 # calculate the running total
-cum_sum = np.mod(np.cumsum(nums) + starting_point, 100)
+cum_sum = np.mod(np.cumsum(offsets) + starting_point, 100)
 
 # determine how many times the value 0 is reached
 zero_crossings = np.sum(cum_sum == 0)
