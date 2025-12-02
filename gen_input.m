@@ -4,7 +4,7 @@ arguments
     day = 0;
 end
 
-filename = uiputfile('*.txt', 'input file name', ['input_day_', num2str(day), '.txt']);
+filename = uiputfile('*.txt', 'input file name', ['day_', num2str(day), '_test_1.txt']);
 
 if(isnumeric(filename))
     return
@@ -21,6 +21,16 @@ if(day <= 1)
     
     data = strcat(directions, distances);
     fprintf(fid, '%s\n', data{:});
+elseif(day == 2)
+    num_entries = 25;
+    starts = randi(100000, 1, num_entries);
+    for idx = 1:num_entries
+        start = starts(idx);
+        stop = start + randi(ceil(start * 0.25), 1);
+        fprintf(fid, '%d-%d', start, stop);
+        if(idx < num_entries)
+            fprintf(fid, ',');
+        end
+    end
 end
-
 end

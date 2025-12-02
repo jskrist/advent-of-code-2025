@@ -1,9 +1,8 @@
 // read in the input file
 use std::fs;
 
-pub fn main() {
-    // let input_file = "day_1_puzzle_1_test_1.txt";
-    let input_file = "day_1_puzzle_1_input.txt";
+pub fn main(scenario: &String, input_root: String) {
+    let input_file = input_root + "/day_1_" + scenario + ".txt";
     let directions = fs::read_to_string(input_file).expect("Failed to read input file");
     let starting_point = 50;
     let mut current_value = starting_point;
