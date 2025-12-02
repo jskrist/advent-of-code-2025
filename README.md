@@ -8,13 +8,13 @@ currently all solutions written in rust are being written as modules that are be
 #### Part 1
 solution file: `day_1_puzzle_1.py`  
 input file: `day_1_puzzle_1_input.txt`  
-expected solution: 1007  
+expected solution: 46  
 test file: `day_1_puzzle_1_test_1.txt`  
-expected test solution: 3
+expected test solution: 0
 
 #### Part 2
 solution file: `day_1_puzzle_2.py`  
 input file: `day_1_puzzle_1_input.txt`  
-expected solution: 5820  
+expected solution: 1030560  
 test file: `day_1_puzzle_1_test_1.txt`  
-expected test solution: 6
+expected test solution: 2

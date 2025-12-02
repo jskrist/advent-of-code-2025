@@ -2,6 +2,7 @@
 use std::fs;
 
 pub fn main() {
+    // let input_file = "day_1_puzzle_1_test_1.txt";
     let input_file = "day_1_puzzle_1_input.txt";
     let directions = fs::read_to_string(input_file).expect("Failed to read input file");
     let starting_point = 50;
