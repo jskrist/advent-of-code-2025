@@ -15,5 +15,5 @@ offsets = [int(i) for i in num_strs.splitlines()]
 cum_sum = np.mod(np.cumsum(offsets) + starting_point, 100)
 
 # determine how many times the value 0 is reached
-zero_crossings = np.sum(cum_sum == 0)
-print(f"The password is {zero_crossings}")
+password = np.count_nonzero(cum_sum == 0)
+print(f"The password is {password}")

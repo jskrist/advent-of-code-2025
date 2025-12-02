@@ -24,7 +24,7 @@ for offset in offsets:
     # Check for wrap around
     password += abs(next_value) // 100
 
-    current_value = np.mod(next_value, 100)
+    current_value = next_value % 100
 
 # vectorized approach double counts some crossings, not sure why
 # # calculate the running total
