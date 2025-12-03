@@ -12,7 +12,7 @@ which follows the formula `cargo run -- <day_number> <input_type>`
 ### Notes on Python Solutions
 python solutions can be run from the top level directory of the repository using a command like the following:
 ```bash
-python day_1_part_1.py inputs/day_1_test_1
+python python/day_1_part_1.py inputs/day_1_test_1
 ```
 which follows the formula `python <solution file> <input path>`
 
