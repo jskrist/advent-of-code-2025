@@ -4,9 +4,9 @@ This is a repository of my 2025 AoC solutions.  I started off doing this in pyth
 ### Notes on Rust Solutions
 currently all solutions written in rust are being written as modules that are being called from the main.rs/main() function.  They should be able to be run the top level directory of the repository using a command like the following:
 ```bash
-cargo run -- test_1
+cargo run -- 1 test_1
 ```
-which follows the formula `cargo run -- <input_type>`
+which follows the formula `cargo run -- <day_number> <input_type>`
 
 
 ### Notes on Python Solutions
@@ -34,3 +34,8 @@ e.g. the test input for day 1 is in the file: `./inputs/day_1_test_1.txt`
 |---|---:|---:|
 | test_1 | 1096386 | 1174163 |
 | input_1 | 3523095 | 4360896 |
+
+| Day 3 | Part 1 | Part 2 |
+|---|---:|---:|
+| test_1 | 392 | 3442797780113 |
+| input_1 | 19800 | 199997292572704 |
