@@ -45,5 +45,16 @@ elseif(day == 3)
         fprintf(fid, '%d', data(idx, :));
         fprintf(fid, '\n');
     end
+elseif(day == 4)
+    num_rows = 135;
+    num_cols = 135;
+    data = randi(2, num_rows, num_cols) - 1;
+    output = char(data);
+    output(data == 0) = '.';
+    output(data == 1) = '@';
+    for idx = 1:num_rows
+        fprintf(fid, '%s', output(idx, :));
+        fprintf(fid, '\n');
+    end
 end
 end
