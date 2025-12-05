@@ -56,5 +56,22 @@ elseif(day == 4)
         fprintf(fid, '%s', output(idx, :));
         fprintf(fid, '\n');
     end
+elseif(day == 5)
+    num_ranges = 179;
+    num_ids = 1000;
+    max_id_start = 6E11;
+    max_range_range = ceil(max_id_start*0.50);
+    start_val = sort(randi(max_id_start, 1, num_ranges));
+    stop_val = start_val + randi(max_range_range, 1, num_ranges);
+    ids = [];
+    while(numel(ids) < num_ids)
+        ids = [ids, unique(randi(max_id_start + max_range_range, 1, num_ids - numel(ids)))]; %#ok<AGROW>
+    end
+    
+    for idx = 1:num_ranges
+        fprintf(fid, '%d-%d\n', start_val(idx), stop_val(idx));
+    end
+    fprintf(fid, '\n');
+    fprintf(fid, '%d\n', ids);
 end
 end

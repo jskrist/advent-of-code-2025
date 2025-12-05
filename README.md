@@ -44,3 +44,8 @@ e.g. the test input for day 1 is in the file: `./inputs/day_1_test_1.txt`
 |---|---:|---:|
 | test_1 | 30 | 44 |
 | input_1 | 3429 | 9129 |
+
+| Day 5 | Part 1 | Part 2 |
+|---|---:|---:|
+| test_1 | 6 | 30 |
+| input_1 | 950 | 858950690400 |
