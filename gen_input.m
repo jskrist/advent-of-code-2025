@@ -73,5 +73,22 @@ elseif(day == 5)
     end
     fprintf(fid, '\n');
     fprintf(fid, '%d\n', ids);
+elseif(day == 6)
+
+    num_problems = 1000;
+    num_nums = 4;
+    num_digits = randi([3, 5], 1, num_problems);
+    format_str = [sprintf('%%%dd ', num_digits), '\n'];
+
+    ops = {'+', '*'};
+
+    all_nums = [];
+    for prob_idx = 1:num_problems
+        fprintf(fid, format_str, randi(10^num_digits(prob_idx), num_nums, 1));
+    end
+
+    format_str = [sprintf('-%%%dc ', num_digits), '\n'];
+    all_ops = ops(randi(2, 1, num_problems));
+    fprintf(fid, format_str, all_ops{:});
 end
 end
