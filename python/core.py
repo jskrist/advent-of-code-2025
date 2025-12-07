@@ -6,7 +6,7 @@ import sys
 def read_file(filename: str | os.PathLike) -> str:
     filename = Path(filename)
     with open(filename, "r") as file:
-        return file.read().strip()
+        return file.read()
 
 
 def parse_inputs(default):
