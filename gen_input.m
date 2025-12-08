@@ -120,5 +120,26 @@ elseif(day == 6)
     op_format_str = [op_format_str(1:end-1) , '\n'];
     all_ops = ops(randi(numel(ops), 1, num_problems));
     fprintf(fid, op_format_str, all_ops{:});
+elseif(day == 7)
+    num_rows = 142;
+    num_cols = num_rows - 1;
+    mid_point = ceil(num_cols/2);
+
+    all_data = repmat('.', num_rows, num_cols);
+    all_data(1, mid_point) = 'S';
+    for level = 1:(floor(num_rows/2)- 1)
+        num_splits = level;
+        
+        split_ind = (mid_point - (num_splits-1)):2:(mid_point + (num_splits - 1)) ;
+        all_data((level*2 + 1), split_ind) = '^';
+    end
+    shift_amt = randi(3, 1, floor(num_cols/2)-1) - 2;
+    split_levels = 3:2:num_rows;
+    for idx = 1:numel(shift_amt)
+        all_data(split_levels(idx), :) = circshift(all_data(split_levels(idx), :), shift_amt(idx));
+    end
+
+    % print all data
+    fprintf(fid, '%s', strjoin(cellstr(all_data), newline));
 end
 end

@@ -57,8 +57,8 @@ e.g. the test input for day 1 is in the file: `./inputs/day_1_test_1.txt`
 
 | Day 7 | Part 1 | Part 2 |
 |---|---:|---:|
-| test_1 |  |  |
-| input_1 |  |  |
+| test_1 | 6 | 8 |
+| input_1 | 666 | 68719476736 |
 
 | Day 8 | Part 1 | Part 2 |
 |---|---:|---:|
