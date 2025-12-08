@@ -19,15 +19,24 @@ pub fn main(scenario: &String, input_root: String) {
     // transpose the character matrix
     let new_nums = transpose(&mod_lines);
     // filter each line into its numeric characters and fold all the charachters on a given line into a single number
-    let vals:Vec<i64> = new_nums.iter()
-                                .map(|n_vec| n_vec.iter()
-                                                              .filter(|n|n.is_numeric())
-                                                              .fold(0, |acc, v|acc*10 + v.to_string()
-                                                                                                             .parse::<i64>()
-                                                                                                             .unwrap_or(0)))
+    // let vals:Vec<i64> = new_nums.iter()
+    //                             .map(|n_vec| n_vec.iter()
+    //                                                           .filter(|n|n.is_numeric())
+    //                                                           .fold(0, |acc, v|acc*10 + v.to_string()
+    //                                                                                                          .parse::<i64>()
+    //                                                                                                          .unwrap_or(0)))
+    //                             .collect();
+    let vals: Vec<Vec<i64>> = new_nums.iter()
+                                .map(|n_vec| n_vec.into_iter()
+                                                              .filter_map(|n|n.to_string().parse::<i64>().ok())
+                                                              .collect())
                                 .collect();
     // split up the vector of numbers into each of the groups of numbers that need to be processed
-    let chunked_vals:Vec<Vec<i64>> = vals.split(|v|*v == 0).map(|v|v.to_vec()).collect();
+    let chunked_vals: Vec<Vec<i64>> = vals.split(|v|v.len() == 0)
+                                 .map(|s|s.into_iter()
+                                                       .map(|v|v.iter().fold(0i64, |acc, d|acc * 10 + d))
+                                                       .collect()).collect();
+    // println!("chunked_vals: {:?}", chunked_vals);
     // using split() saves us from having to do the following:
     // let mut chunked_vals:Vec<Vec<i64>> = Vec::new();
     // chunked_vals.push(vec![]);

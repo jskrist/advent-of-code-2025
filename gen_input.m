@@ -75,20 +75,50 @@ elseif(day == 5)
     fprintf(fid, '%d\n', ids);
 elseif(day == 6)
 
-    num_problems = 1000;
-    num_nums = 4;
-    num_digits = randi([3, 5], 1, num_problems);
-    format_str = [sprintf('%%%dd ', num_digits), '\n'];
+    num_problems = 4;
+    num_nums = 3;
+    num_digits = randi([2, 4], 1, num_problems);
+    max_vals = 10 .^num_digits;
+    num_format_str = sprintf('%%-%dd ', num_digits);
+    num_format_str = [num_format_str(1:end-1) , '\n'];
+    minus_ind = strfind(num_format_str, '-');
+    minus_ind(randperm(num_problems, floor(num_problems/2))) = [];
+    num_format_str(minus_ind) = [];
 
-    ops = {'+', '*'};
+    ops = {'+', '+', '+', '+', '*'}; % bias towards addition
 
-    all_nums = [];
-    for prob_idx = 1:num_problems
-        fprintf(fid, format_str, randi(10^num_digits(prob_idx), num_nums, 1));
+
+    distrib_stepsize = [0.2000, 0.0476, 0.0270, 0.0192, 0.0152, 0.0128, 0.0114, 0.0105, 0.0101, 0.0100, 0.0100, 0.0270, 0.0714, ...
+                        0.2000, 0.5000, ones(1, 80)] * 0.0001;
+    distribution = cell(1, numel(distrib_stepsize));
+    start = 0;
+    dist = 1 / numel(distrib_stepsize);
+    for idx = 1:numel(distrib_stepsize)
+        stop = start + dist;
+        distribution{idx} = start:distrib_stepsize(idx):stop;
+        start = stop;
     end
+    distribution = [distribution{:}];
 
-    format_str = [sprintf('-%%%dc ', num_digits), '\n'];
-    all_ops = ops(randi(2, 1, num_problems));
-    fprintf(fid, format_str, all_ops{:});
+    data = NaN(num_nums, num_problems);
+    for idx = 1:num_problems
+        this_distrib = distribution * (max_vals(idx)-1);
+        data(:, idx) = max(floor(this_distrib(randperm(numel(this_distrib), num_nums))), 1);
+    end
+    % make sure there is at least one value that spans the col width
+    low_max_ind = find(max(data) < max_vals/10);
+    for idx = low_max_ind
+        [~, max_ind] = max(data(:, idx));
+        data(max_ind, idx) = max_vals(idx)/2;
+    end
+    % sort to avoid gaps for part 2
+    data = sort(data);
+
+    fprintf(fid, num_format_str, data');
+
+    op_format_str = sprintf('%%-%dc ', num_digits);
+    op_format_str = [op_format_str(1:end-1) , '\n'];
+    all_ops = ops(randi(numel(ops), 1, num_problems));
+    fprintf(fid, op_format_str, all_ops{:});
 end
 end

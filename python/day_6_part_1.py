@@ -8,8 +8,7 @@ def solution(scenario: str):
 
     lines = np.array([line.strip().split() for line in input.strip().splitlines()])
     numerical_data = np.array([[int(d) for d in line] for line in lines
-                               if line[0] not in ["+", "*"]]).T
-
+                               if line[0] not in ["+", "*"]], dtype=np.int64).T
     result = 0
     for op, nums in zip(lines[-1], numerical_data):
         if op == "*":
