@@ -141,5 +141,15 @@ elseif(day == 7)
 
     % print all data
     fprintf(fid, '%s', strjoin(cellstr(all_data), newline));
+elseif(day == 8)
+    num_coords = 1000;
+    max_coord = 100000;
+    coords = randi(max_coord, num_coords, 3);
+    for idx = 1:num_coords
+        fprintf(fid, '%d,%d,%d', coords(idx, :));
+        if(idx < num_coords)
+            fprintf(fid, '\n');
+        end
+    end
 end
 end

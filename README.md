@@ -62,5 +62,25 @@ e.g. the test input for day 1 is in the file: `./inputs/day_1_test_1.txt`
 
 | Day 8 | Part 1 | Part 2 |
 |---|---:|---:|
+| test_1 | 36 | 1761122600 |
+| input_1 | 51744 | 8884457800 |
+
+| Day 9 | Part 1 | Part 2 |
+|---|---:|---:|
+| test_1 |  |  |
+| input_1 |  |  |
+
+| Day 10 | Part 1 | Part 2 |
+|---|---:|---:|
+| test_1 |  |  |
+| input_1 |  |  |
+
+| Day 11 | Part 1 | Part 2 |
+|---|---:|---:|
+| test_1 |  |  |
+| input_1 |  |  |
+
+| Day 12 | Part 1 | Part 2 |
+|---|---:|---:|
 | test_1 |  |  |
 | input_1 |  |  |
