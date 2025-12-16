@@ -39,8 +39,8 @@ pub fn main(scenario: &String, input_root: String) {
             results[left_ind] += results[*i];
             results[right_ind] += results[*i];
             results[*i] = 0;
-            tach_ind.insert(i.saturating_sub(1));
-            tach_ind.insert(min(i + 1, line_len));
+            tach_ind.insert(left_ind);
+            tach_ind.insert(right_ind);
         }
         splitter_ind.clear();
     }
