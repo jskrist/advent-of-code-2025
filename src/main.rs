@@ -18,6 +18,8 @@ mod day_8_part_1;
 mod day_8_part_2;
 mod day_9_part_1;
 mod day_9_part_2;
+mod day_11_part_1;
+mod day_11_part_2;
 
 fn run_day(day_number:u8, scenario: &String, input_root: &String) {
     match day_number {
@@ -74,6 +76,12 @@ fn run_day(day_number:u8, scenario: &String, input_root: &String) {
             day_9_part_1::main(scenario, input_root.to_string());
             println!("Day {} Part 2:", day_number);
             day_9_part_2::main(scenario, input_root.to_string());
+        }
+        11 => {
+            println!("Day {} Part 1:", day_number);
+            day_11_part_1::main(scenario, input_root.to_string());
+            println!("Day {} Part 2:", day_number);
+            day_11_part_2::main(scenario, input_root.to_string());
         }
         _ => {}
     }
